@@ -1,6 +1,10 @@
-import handleShimmers from './js/shimmers';
-
 import './styles/index.scss';
 
-document.querySelector('.shimmers') && 
- handleShimmers()
+import handleShimmers from './js/shimmers';
+import handleDialog from './js/dialog';
+
+document.querySelector('.shimmers') &&
+  handleShimmers()
+
+document.querySelector('dialog') &&
+  handleDialog()

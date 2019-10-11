@@ -1,5 +1,4 @@
-$breakpoint-m: 639px;
-$breakpoint-l: 1199px;
+$breakpoint-l: 1024px;
 
 @font-face {
   font-family: "Roboto";
@@ -27,8 +26,8 @@ $breakpoint-l: 1199px;
 }
 
 .container {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
   display: grid;
   grid-template-rows: auto auto auto;
   grid-gap: 25px;
@@ -92,6 +91,7 @@ $breakpoint-l: 1199px;
 
   animation-duration: 1s;
   animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
   animation-iteration-count: infinite;
   animation-name: placeholderShimmer;
   animation-timing-function: linear;
@@ -108,4 +108,11 @@ $breakpoint-l: 1199px;
   100% {
     background-position: 468px 0;
   }
+}
+
+.help-btn {
+  position: fixed;
+  right: 30px;
+  bottom: 50px;
+  z-index: 2;
 }
