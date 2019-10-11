@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+  <title>Shimmer generator</title>
+</head>
+
+<body>
+  <div class="container">
+    <section class="settings">
+      <form action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label settings__input">
+          <input class="mdl-textfield__input" type="number" id="sample3" />
+          <label class="mdl-textfield__label" for="sample3">Width</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label settings__input">
+          <input class="mdl-textfield__input" type="number" id="sample3" />
+          <label class="mdl-textfield__label" for="sample3">Height</label>
+        </div>
+        <input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="0" tabindex="0">
+      </form>
+    </section>
+    <section class="preview">
+      <div class="preview__output">
+        <div class="mdl-tabs__tab-bar">
+          <div class="mdl-tabs__tab">Preview</div>
+        </div>
+        <div class="shimmers">          
+          <div class="shine"></div>
+        </div>
+        <button id="tt1"
+          class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored preview__add-btn">
+          <i class="material-icons">add</i>
+        </button>
+        <div class="mdl-tooltip" data-mdl-for="tt1">
+          New shimmer
+        </div>
+      </div>
+      <div class="preview__code">
+        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+          <div class="mdl-tabs__tab-bar">
+            <a href="#html-panel" class="mdl-tabs__tab is-active">HTML</a>
+            <a href="#css-panel" class="mdl-tabs__tab">CSS</a>
+          </div>
+          <div class="mdl-tabs__panel is-active" id="html-panel">
+            <pre>
+            <ul>
+              <li>Eddard</li>
+              <li>Catelyn</li>
+              <li>Robb</li>
+              <li>Sansa</li>
+              <li>Brandon</li>
+              <li>Arya</li>
+              <li>Rickon</li>
+            </ul>
+          </pre>
+          </div>
+          <div class="mdl-tabs__panel" id="css-panel">
+            <pre>
+            <ul>
+              <li>Tywin</li>
+              <li>Cersei</li>
+              <li>Jamie</li>
+              <li>Tyrion</li>
+            </ul>
+          </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+
+</html>
