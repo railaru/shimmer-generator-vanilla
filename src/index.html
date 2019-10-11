@@ -21,9 +21,14 @@
       </p>
     </div>
     <div class="mdl-dialog__actions">
-      <button type="button" class="mdl-button">Close</button>      
+      <button type="button" class="mdl-button">Close</button>
     </div>
   </dialog>
+
+
+  <div class="shimmer-style">
+
+  </div>
 
 
   <div class="container">
@@ -95,29 +100,30 @@
         <div class="mdl-tabs__tab">Global settings</div>
       </div>
       <div class="global__input-group">
-        <label for="" class="global__label">Shade 1</label>
-        <input class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="0" tabindex="0">
+        <label for="shade1" class="global__label">Shade 1</label>
+        <input id="shade1RangeSlider" class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="0" tabindex="0">
       </div>
       <div class="global__input-group">
-        <label for="" class="global__label">Shade 2</label>
-        <input class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="0" tabindex="0">
+        <label for="shade2" class="global__label">Shade 2</label>
+        <input id="shade2RangeSlider" class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="20" tabindex="0">
       </div>
       <div class="global__input-group">
-        <label for="" class="global__label">Shade 3</label>
-        <input class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="0" tabindex="0">
+        <label for="shade3" class="global__label">Shade 3</label>
+        <input id="shade3RangeSlider" class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="40" tabindex="0">
       </div>
       <div class="global__input-group">
-        <label for="" class="global__label">Shade 4</label>
-        <input class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="0" tabindex="0">
+        <label for="shade4" class="global__label">Shade 4</label>
+        <input id="shade4RangeSlider" class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="100" tabindex="0">
       </div>
       <div class="global__input-group">
-        <label for="" class="global__label">Animation speed</label>
+        <label for="animation-duration" class="global__label">Animation duration</label>
         <input id="speedRangeSlider" class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100"
-          value="10" tabindex="0">
+          value="50" tabindex="0">
       </div>
     </section>
   </div>
-  <button id="help" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored help-btn dialog-button">
+  <button id="help"
+    class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored help-btn dialog-button">
     <i class="material-icons">help</i>
   </button>
   <div class="mdl-tooltip" data-mdl-for="help">

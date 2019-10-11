@@ -32,7 +32,7 @@ $breakpoint-l: 1024px;
   grid-template-rows: auto auto auto;
   grid-gap: 25px;
   @media (min-width: $breakpoint-l) {
-    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-columns: 300px 1fr 300px;
     grid-template-rows: auto;
   }
 }
@@ -75,29 +75,15 @@ $breakpoint-l: 1024px;
   cursor: pointer;
 }
 
-.shine {
-  background: #f6f7f8;
-  background-image: linear-gradient(
-    to right,
-    #f6f7f8 0%,
-    #edeef1 20%,
-    #f6f7f8 40%,
-    #f6f7f8 100%
-  );
-  background-repeat: no-repeat;
-  background-size: 800px 400px;
-  display: inline-block;
-  position: relative;
+.help-btn {
+  position: fixed;
+  right: 30px;
+  bottom: 50px;
+  z-index: 2;
+}
 
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-name: placeholderShimmer;
-  animation-timing-function: linear;
-
-  width: 400px;
-  height: 400px;
+.remove-shimmer-btn {
+  display: block;
 }
 
 @keyframes placeholderShimmer {
@@ -108,11 +94,4 @@ $breakpoint-l: 1024px;
   100% {
     background-position: 468px 0;
   }
-}
-
-.help-btn {
-  position: fixed;
-  right: 30px;
-  bottom: 50px;
-  z-index: 2;
 }

@@ -1,8 +1,17 @@
 export default function handleShimmers() {
 
-  const outputTarget = document.querySelector('.shimmers')
-  const newShimmerBtn = document.querySelector('.preview__add-btn')
-  let animationSpeed = 0;
+  const outputTarget = document.querySelector(".shimmers");
+  const cssOutputTarget = document.querySelector(".shimmer-style");
+  const newShimmerBtn = document.querySelector(".preview__add-btn");
+  let animationDuration = 1;
+  let shade1 = 0;
+  let shade2 = 20;
+  let shade3 = 40;
+  let shade4 = 100;
+  let color1 = 0;
+  let color2 = 20;
+  let color3 = 40;
+  let color4 = 100;
 
   const template = `
     <div 
@@ -11,51 +20,80 @@ export default function handleShimmers() {
     </div>
   `;
 
-  const shimmerStyle = `    
-  .shine {
-    background: #f6f7f8;
-    background-image: linear-gradient(
-      to right,
-      #f6f7f8 0%,
-      #edeef1 20%,
-      #f6f7f8 40%,
-      #f6f7f8 100%
-    );
-    background-repeat: no-repeat;
-    background-size: 800px 400px;
-    display: inline-block;
-    position: relative;
-
-    animation-duration: ${animationSpeed}s;
-    animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: placeholderShimmer;
-    animation-timing-function: linear;
-  }
-
-  @keyframes placeholderShimmer {
-    0% {
-      background-position: -468px 0;
-    }
-
-    100% {
-      background-position: 468px 0;
-    }
-  }
-`
-
   newShimmerBtn.onclick = () => {
     updateDOM();
-  }
+  };
 
   function handleRangeSliders() {
-    document.querySelector('#speedRangeSlider').onchange = () => animationSpeed = speedSlider.value
+    const speedSlider = document.querySelector("#speedRangeSlider");
+    speedSlider.onchange = () => {
+      animationDuration = speedSlider.value / 50;
+      updateDOM();
+    };
+
+    const shade1Slider = document.querySelector("#shade1RangeSlider");
+    shade1Slider.onchange = () => {
+      shade1 = shade1Slider.value;
+      updateDOM();
+    };
+
+    const shade2Slider = document.querySelector("#shade2RangeSlider");
+    shade2Slider.onchange = () => {
+      shade2 = shade2Slider.value;
+      updateDOM();
+    };
+
+    const shade3Slider = document.querySelector("#shade3RangeSlider");
+    shade3Slider.onchange = () => {
+      shade3 = shade3Slider.value;
+      updateDOM();
+    };
+
+    const shade4Slider = document.querySelector("#shade4RangeSlider");
+    shade4Slider.onchange = () => {
+      shade4 = shade4Slider.value;
+      updateDOM();
+    };
   }
 
   function updateDOM() {
-    outputTarget.innerHTML = template
+    const shimmerStyle = `    
+    .shine {
+      background: #f6f7f8;
+      background-image: linear-gradient(
+        to right,
+        #f6f7f8 ${shade1}%,
+        #edeef1 ${shade2}%,
+        #f6f7f8 ${shade3}%,
+        #f6f7f8 ${shade4}%
+      );
+      background-repeat: no-repeat;
+      background-size: 800px 400px;
+      display: inline-block;
+      position: relative;
+  
+      animation-duration: ${animationDuration}s;
+      animation-fill-mode: forwards;    
+      animation-iteration-count: infinite;
+      animation-name: placeholderShimmer;
+      animation-timing-function: linear;
+    }
+  
+    @keyframes placeholderShimmer {
+      0% {
+        background-position: -468px 0;
+      }
+  
+      100% {
+        background-position: 468px 0;
+      }
+    }
+    `;
+    outputTarget.innerHTML = template;
+    cssOutputTarget.innerHTML = `<style>${shimmerStyle}</style>`;
+    document.querySelector("#css-panel pre").innerHTML = shimmerStyle;
   }
 
+  updateDOM();
   handleRangeSliders();
 }
