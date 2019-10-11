@@ -12,27 +12,29 @@
 
 <body>
   <div class="container">
-    <section class="settings">
-      <form action="#">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label settings__input">
-          <input class="mdl-textfield__input" type="number" id="sample3" />
-          <label class="mdl-textfield__label" for="sample3">Width</label>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label settings__input">
-          <input class="mdl-textfield__input" type="number" id="sample3" />
-          <label class="mdl-textfield__label" for="sample3">Height</label>
-        </div>
-        <input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="0" tabindex="0">
-      </form>
+    <section class="settings">      
+      <div class="mdl-tabs__tab-bar">
+        <div class="mdl-tabs__tab">Shimmer #1 settings</div>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label settings__input">
+        <input class="mdl-textfield__input" type="number" id="width" />
+        <label class="mdl-textfield__label" for="width">Width</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label settings__input">
+        <input class="mdl-textfield__input" type="number" id="height" />
+        <label class="mdl-textfield__label" for="height">Height</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label settings__input">
+        <input class="mdl-textfield__input" type="number" id="marginTop" />
+        <label class="mdl-textfield__label" for="marginTop">Margin Top</label>
+      </div>
     </section>
     <section class="preview">
       <div class="preview__output">
         <div class="mdl-tabs__tab-bar">
           <div class="mdl-tabs__tab">Preview</div>
         </div>
-        <div class="shimmers">          
-          <div class="shine"></div>
-        </div>
+        <div class="shimmers"></div>
         <button id="tt1"
           class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored preview__add-btn">
           <i class="material-icons">add</i>
@@ -71,6 +73,27 @@
           </pre>
           </div>
         </div>
+      </div>
+    </section>
+    <section class="global-settings">
+      <div class="mdl-tabs__tab-bar">
+        <div class="mdl-tabs__tab">Global settings</div>
+      </div>
+      <div class="global__input-group">
+        <label for="" class="global__label">Shade 1</label>
+        <input class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="0" tabindex="0">
+      </div>
+      <div class="global__input-group">
+        <label for="" class="global__label">Shade 2</label>
+        <input class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="0" tabindex="0">
+      </div>      
+      <div class="global__input-group">
+        <label for="" class="global__label">Shade 3</label>
+        <input class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="0" tabindex="0">
+      </div>
+      <div class="global__input-group">
+        <label for="" class="global__label">Shade 4</label>
+        <input class="mdl-slider mdl-js-slider global__input" type="range" min="0" max="100" value="0" tabindex="0">  
       </div>
     </section>
   </div>

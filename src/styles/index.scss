@@ -2,26 +2,26 @@ $breakpoint-m: 639px;
 $breakpoint-l: 1199px;
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto/Roboto-Bold.ttf') format('opentype');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Bold.ttf") format("opentype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto/Roboto-Regular.ttf') format('opentype');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto/Roboto-Light.ttf') format('opentype');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Light.ttf") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto/Roboto-Thin.ttf') format('opentype');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Thin.ttf") format("opentype");
   font-weight: 200;
   font-style: normal;
 }
@@ -30,11 +30,20 @@ $breakpoint-l: 1199px;
   padding-left: 20px;
   padding-right: 20px;
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto;
   grid-gap: 25px;
-  @media (min-width: $breakpoint-m) {
-    grid-template-columns: 1fr 3fr;  
+  @media (min-width: $breakpoint-l) {
+    grid-template-columns: 2fr 3fr 2fr;
     grid-template-rows: auto;
+  }
+}
+
+.global {
+  &__input-group {
+    margin-top: 20px;
+  }
+  &__label {    
+    color: #BDBDBD;
   }  
 }
 
@@ -59,33 +68,44 @@ $breakpoint-l: 1199px;
 
 .shimmers {
   margin-top: 30px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.shimmer {
+  cursor: pointer;
 }
 
 .shine {
- background: #f6f7f8;
- background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
- background-repeat: no-repeat;
- background-size: 800px 400px; 
- display: inline-block;
- position: relative; 
- 
- animation-duration: 1s;
- animation-fill-mode: forwards; 
- animation-iteration-count: infinite;
- animation-name: placeholderShimmer;
- animation-timing-function: linear;
+  background: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 400px;
+  display: inline-block;
+  position: relative;
 
- width: 400px;
- height: 400px;
- }
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholderShimmer;
+  animation-timing-function: linear;
 
-@keyframes placeholderShimmer {
- 0% {
-   background-position: -468px 0;
- }
- 
- 100% {
-   background-position: 468px 0; 
- }
+  width: 400px;
+  height: 400px;
 }
 
+@keyframes placeholderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
+}
