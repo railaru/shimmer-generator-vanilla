@@ -1,28 +1,82 @@
 export default function handleShimmers() {
-
   const outputTarget = document.querySelector(".shimmers");
   const cssOutputTarget = document.querySelector(".shimmer-style");
   const newShimmerBtn = document.querySelector(".preview__add-btn");
+
   let animationDuration = 1;
   let shade1 = 0;
   let shade2 = 20;
   let shade3 = 40;
   let shade4 = 100;
-  let color1 = '#f6f7f8';
-  let color2 = '#edeef1';
-  let color3 = '#f6f7f8';
-  let color4 = '#f6f7f8';
+  let color1 = "#f6f7f8";
+  let color2 = "#edeef1";
+  let color3 = "#f6f7f8";
+  let color4 = "#f6f7f8";
+  let shimmerId = 0;
 
-  const template = `
+  let selectedShimmerId = 0;
+  let selectedShimmerWidth = 300;
+  let selectedShimmerHeight = 200;
+  let selectedShimmerMarginTop = 10;
+
+  function newShimmer() {
+    const template = `
     <div 
-      style='width: 400px; height: 400px;'
+      shimmer-id='${shimmerId}'
+      style='
+        width: ${selectedShimmerWidth}px; 
+        height: ${selectedShimmerHeight}px;
+        margin-top: ${selectedShimmerMarginTop}px;
+        '
       class="shimmer shine">
     </div>
-  `;
-
-  newShimmerBtn.onclick = () => {
+    `;
+    outputTarget.innerHTML += template;
+    shimmerId++;
     updateDOM();
-  };
+  }
+
+  function handleSelectedShimmerInputs() {
+    const selectedShimmerWidthInput = document.querySelector("#selectedShimmerWidth");
+    selectedShimmerWidthInput.onchange = () => {
+      selectedShimmerWidth = selectedShimmerWidthInput.value;      
+      updateSelectedShimmer()      
+    };
+
+    const selectedShimmerHeightInput = document.querySelector("#selectedShimmerHeight");
+    selectedShimmerHeightInput.onchange = () => {
+      selectedShimmerHeight = selectedShimmerHeightInput.value;      
+      updateSelectedShimmer()      
+    };
+
+    const selectedShimmerMarginTopInput = document.querySelector("#selectedShimmerMarginTop");
+    selectedShimmerMarginTopInput.onchange = () => {
+      selectedShimmerMarginTop = selectedShimmerMarginTopInput.value;      
+      updateSelectedShimmer()      
+    };
+  }
+
+  function updateSelectedShimmer() {
+    const selectedShimmer = document.querySelector(`div[shimmer-id='${selectedShimmerId}']`)
+
+    selectedShimmer.style.width = selectedShimmerWidth + 'px'
+    selectedShimmer.style.height = selectedShimmerHeight + 'px'
+    selectedShimmer.style.marginTop = selectedShimmerMarginTop + 'px'
+  }
+
+  function updateShimmers() {
+    const shimmers = document.querySelectorAll(".shimmer");
+
+    shimmers.forEach(shimmer => {
+      shimmer.onclick = () => {
+        selectedShimmerId = shimmer.getAttribute("shimmer-id");
+        selectedShimmerWidth = shimmer.style.width;
+        selectedShimmerHeight = shimmer.style.height;
+        selectedShimmerMarginTop = shimmer.style.marginTop;
+        handleSelectedShimmerInputs();
+      };
+    });
+  }
 
   function handleRangeSliders() {
     const speedSlider = document.querySelector("#speedRangeSlider");
@@ -57,28 +111,27 @@ export default function handleShimmers() {
   }
 
   function handleInputs() {
-
     const colorInput1 = document.querySelector("#colorInput1");
     colorInput1.onchange = () => {
-      color1 = colorInput1.value;      
+      color1 = colorInput1.value;
       updateDOM();
     };
 
     const colorInput2 = document.querySelector("#colorInput2");
     colorInput2.onchange = () => {
-      color2 = colorInput2.value;      
+      color2 = colorInput2.value;
       updateDOM();
     };
 
     const colorInput3 = document.querySelector("#colorInput3");
     colorInput3.onchange = () => {
-      color3 = colorInput3.value;      
+      color3 = colorInput3.value;
       updateDOM();
     };
 
     const colorInput4 = document.querySelector("#colorInput4");
     colorInput4.onchange = () => {
-      color4 = colorInput4.value;      
+      color4 = colorInput4.value;
       updateDOM();
     };
   }
@@ -116,11 +169,13 @@ export default function handleShimmers() {
       }
     }
     `;
-    outputTarget.innerHTML = template;
     cssOutputTarget.innerHTML = `<style>${shimmerStyle}</style>`;
     document.querySelector("#css-panel pre").innerHTML = shimmerStyle;
+    updateShimmers();
   }
 
+  newShimmer();
+  newShimmerBtn.onclick = () => newShimmer();
   updateDOM();
   handleRangeSliders();
   handleInputs();
