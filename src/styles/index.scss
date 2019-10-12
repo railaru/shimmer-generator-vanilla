@@ -53,6 +53,13 @@ $breakpoint-l: 1024px;
 
 .settings__input {
   width: 100%;
+  &--color {
+    &__preview {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
 }
 
 .preview {

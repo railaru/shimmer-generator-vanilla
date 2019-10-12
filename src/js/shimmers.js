@@ -8,10 +8,10 @@ export default function handleShimmers() {
   let shade2 = 20;
   let shade3 = 40;
   let shade4 = 100;
-  let color1 = 'f6f7f8';
-  let color2 = 'edeef1';
-  let color3 = 'f6f7f8';
-  let color4 = 'f6f7f8';
+  let color1 = '#f6f7f8';
+  let color2 = '#edeef1';
+  let color3 = '#f6f7f8';
+  let color4 = '#f6f7f8';
 
   const template = `
     <div 
@@ -56,16 +56,43 @@ export default function handleShimmers() {
     };
   }
 
+  function handleInputs() {
+
+    const colorInput1 = document.querySelector("#colorInput1");
+    colorInput1.onchange = () => {
+      color1 = colorInput1.value;      
+      updateDOM();
+    };
+
+    const colorInput2 = document.querySelector("#colorInput2");
+    colorInput2.onchange = () => {
+      color2 = colorInput2.value;      
+      updateDOM();
+    };
+
+    const colorInput3 = document.querySelector("#colorInput3");
+    colorInput3.onchange = () => {
+      color3 = colorInput3.value;      
+      updateDOM();
+    };
+
+    const colorInput4 = document.querySelector("#colorInput4");
+    colorInput4.onchange = () => {
+      color4 = colorInput4.value;      
+      updateDOM();
+    };
+  }
+
   function updateDOM() {
     const shimmerStyle = `    
     .shine {
       background: #f6f7f8;
       background-image: linear-gradient(
         to right,
-        #${color1} ${shade1}%,
-        #${color2} ${shade2}%,
-        #${color3} ${shade3}%,
-        #${color4} ${shade4}%
+        ${color1} ${shade1}%,
+        ${color2} ${shade2}%,
+        ${color3} ${shade3}%,
+        ${color4} ${shade4}%
       );
       background-repeat: no-repeat;
       background-size: 800px 400px;
@@ -96,4 +123,5 @@ export default function handleShimmers() {
 
   updateDOM();
   handleRangeSliders();
+  handleInputs();
 }
