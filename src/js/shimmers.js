@@ -181,6 +181,7 @@ export default function handleShimmers() {
     `;
     cssOutputTarget.innerHTML = `<style>${shimmerStyle}</style>`;
     document.querySelector("#css-panel pre").innerHTML = shimmerStyle;
+    document.querySelector("#html-panel pre").innerText = document.querySelector('.shimmers').innerHTML; 
     updateShimmers();
   }
 

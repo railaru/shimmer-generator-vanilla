@@ -68,7 +68,11 @@ $breakpoint-l: 1024px;
     margin-top: 30px;
   }
   &__code {
-    margin-top: 20px;
+   
+    pre {
+      background: #333;
+      color: lime;
+    }
   }
 }
 
