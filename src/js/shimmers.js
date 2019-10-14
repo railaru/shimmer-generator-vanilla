@@ -15,18 +15,18 @@ export default function handleShimmers() {
   let shimmerId = 0;
 
   let selectedShimmerId = 0;
-  let selectedShimmerWidth = 300;
-  let selectedShimmerHeight = 200;
-  let selectedShimmerMarginTop = 10;
+  let selectedShimmerWidth = "300px";
+  let selectedShimmerHeight = "200px";
+  let selectedShimmerMarginTop = "10px";
 
   function newShimmer() {
     const template = `
     <div 
       shimmer-id='${shimmerId}'
       style='
-        width: ${selectedShimmerWidth}px; 
-        height: ${selectedShimmerHeight}px;
-        margin-top: ${selectedShimmerMarginTop}px;
+        width: ${selectedShimmerWidth}; 
+        height: ${selectedShimmerHeight};
+        margin-top: ${selectedShimmerMarginTop};
         '
       class="shimmer shine">
     </div>
@@ -37,44 +37,54 @@ export default function handleShimmers() {
   }
 
   function handleSelectedShimmerInputs() {
-    const selectedShimmerWidthInput = document.querySelector("#selectedShimmerWidth");
+    const selectedShimmerWidthInput = document.querySelector(
+      "#selectedShimmerWidth"
+    );
     selectedShimmerWidthInput.onchange = () => {
-      selectedShimmerWidth = selectedShimmerWidthInput.value;      
-      updateSelectedShimmer()      
+      selectedShimmerWidth = selectedShimmerWidthInput.value + "px";
+      updateSelectedShimmer();
     };
 
-    const selectedShimmerHeightInput = document.querySelector("#selectedShimmerHeight");
+    const selectedShimmerHeightInput = document.querySelector(
+      "#selectedShimmerHeight"
+    );
     selectedShimmerHeightInput.onchange = () => {
-      selectedShimmerHeight = selectedShimmerHeightInput.value;      
-      updateSelectedShimmer()      
+      selectedShimmerHeight = selectedShimmerHeightInput.value + "px";
+      updateSelectedShimmer();
     };
 
-    const selectedShimmerMarginTopInput = document.querySelector("#selectedShimmerMarginTop");
+    const selectedShimmerMarginTopInput = document.querySelector(
+      "#selectedShimmerMarginTop"
+    );
     selectedShimmerMarginTopInput.onchange = () => {
-      selectedShimmerMarginTop = selectedShimmerMarginTopInput.value;      
-      updateSelectedShimmer()      
+      selectedShimmerMarginTop = selectedShimmerMarginTopInput.value + "px";
+      updateSelectedShimmer();
     };
   }
 
   function updateSelectedShimmer() {
-    const selectedShimmer = document.querySelector(`div[shimmer-id='${selectedShimmerId}']`)
+    const selectedShimmer = document.querySelector(
+      `div[shimmer-id='${selectedShimmerId}']`
+    );
 
-    selectedShimmer.style.width = selectedShimmerWidth + 'px'
-    selectedShimmer.style.height = selectedShimmerHeight + 'px'
-    selectedShimmer.style.marginTop = selectedShimmerMarginTop + 'px'
+    selectedShimmer.style.width = selectedShimmerWidth;
+    selectedShimmer.style.height = selectedShimmerHeight;
+    selectedShimmer.style.marginTop = selectedShimmerMarginTop;
+
+    updateShimmers();
   }
 
   function updateShimmers() {
     const shimmers = document.querySelectorAll(".shimmer");
 
     shimmers.forEach(shimmer => {
-      shimmer.onclick = () => {
+      shimmer.addEventListener("click", () => {
         selectedShimmerId = shimmer.getAttribute("shimmer-id");
         selectedShimmerWidth = shimmer.style.width;
         selectedShimmerHeight = shimmer.style.height;
         selectedShimmerMarginTop = shimmer.style.marginTop;
         handleSelectedShimmerInputs();
-      };
+      });
     });
   }
 
@@ -175,7 +185,7 @@ export default function handleShimmers() {
   }
 
   newShimmer();
-  newShimmerBtn.onclick = () => newShimmer();
+  newShimmerBtn.addEventListener("click", () => newShimmer());
   updateDOM();
   handleRangeSliders();
   handleInputs();
